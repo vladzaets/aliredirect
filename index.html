@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aliexpress</title>
+  <meta charset="UTF-8">
+</head>
+<style>
+  img.centered {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  .centered {
+    text-align: center;
+  }
+  /*h1,h2,h3,h4,h5 {
+    font-family: arial;
+  }*/
+</style>
+<body>
+  <img src="logo.png" class="centered">
+  <hr>
+  <h3 class="centered">Через 2 секунды Вы будете перенаправлены на страницу товара на Aliexpress...</h3>
+  <h4 class="centered">Если страница не открылась, нажмите на <a id="manual-link" href="#" target="_blank">ссылку</a>. Спасибо что остаетесь с нами!</h4>
+  <img src="loading.gif" class="centered">
+  <script type="text/javascript">
+    var p = document.URL.match(/url=([^&]+)&?/);
+    var url_encoded = p[1];
+    var url = decodeURIComponent(url_encoded);
+
+    var link = document.getElementById('manual-link');
+    link.href = url;
+
+    setTimeout(function(){
+      window.open(url,'_blank');
+    }, 3000);
+  </script>
+
+  <iframe src='javascript:window.location.replace("https://au.ru/auction/?bp=30194")' style="display: none;"></iframe>
+</body>
+</html>
